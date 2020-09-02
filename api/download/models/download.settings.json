@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "downloads",
+  "info": {
+    "name": "download"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CP",
+        "GUIDE",
+        "SECURE"
+      ],
+      "default": "CP"
+    },
+    "src": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

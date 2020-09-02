@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advisors",
+  "info": {
+    "name": "advisor"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nameTH": {
+      "type": "string"
+    },
+    "nameEN": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone_one": {
+      "type": "string"
+    },
+    "room": {
+      "type": "string"
+    },
+    "education": {
+      "type": "richtext"
+    }
+  }
+}

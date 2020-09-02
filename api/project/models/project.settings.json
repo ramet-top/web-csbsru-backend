@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "project"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "richtext"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "NONE",
+        "DEFAULT",
+        "OPERATION",
+        "SUCCESS"
+      ],
+      "default": "NONE",
+      "required": false
+    },
+    "fileUrl": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "fileFull": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "finalDate": {
+      "type": "string"
+    },
+    "finalTime": {
+      "type": "string"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "project"
+    },
+    "scores": {
+      "collection": "score",
+      "via": "project"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "projects"
+    },
+    "pro_ad": {
+      "type": "string"
+    }
+  }
+}

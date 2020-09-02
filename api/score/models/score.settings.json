@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scores",
+  "info": {
+    "name": "score"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "status": {
+      "type": "boolean"
+    },
+    "project": {
+      "via": "scores",
+      "model": "project"
+    },
+    "user": {
+      "via": "scores",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

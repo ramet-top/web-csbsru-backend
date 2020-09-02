@@ -1,0 +1,132 @@
+{
+  "kind": "collectionType",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "user",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false,
+      "private": false
+    },
+    "permissions": {
+      "plugin": "users-permissions",
+      "collection": "permission",
+      "via": "user"
+    },
+    "prefix": {
+      "type": "string",
+      "private": false
+    },
+    "firstName": {
+      "type": "string",
+      "private": false
+    },
+    "lastName": {
+      "type": "string",
+      "private": false
+    },
+    "birthDate": {
+      "type": "string",
+      "private": false
+    },
+    "yearIn": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "default": "2020-01-20"
+    },
+    "imageUrl": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "tel": {
+      "type": "string",
+      "private": false
+    },
+    "lineId": {
+      "type": "string",
+      "private": false
+    },
+    "faceBook": {
+      "type": "string",
+      "private": false
+    },
+    "parents": {
+      "type": "string",
+      "private": false
+    },
+    "addr": {
+      "type": "text",
+      "private": false
+    },
+    "posts": {
+      "collection": "post",
+      "via": "user"
+    },
+    "projects": {
+      "via": "user",
+      "collection": "project"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "user"
+    },
+    "scores": {
+      "collection": "score",
+      "via": "user"
+    }
+  }
+}
