@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "name": "contact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "tel": {
+      "type": "string"
+    },
+    "addr": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "richtext"
+    },
+    "position_lat": {
+      "type": "string"
+    },
+    "position_long": {
+      "type": "string"
+    }
+  }
+}
