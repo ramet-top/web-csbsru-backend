@@ -55,17 +55,17 @@
       "type": "string"
     },
     "comments": {
-      "collection": "comment",
-      "via": "project"
+      "via": "project",
+      "collection": "comment"
     },
     "scores": {
       "collection": "score",
       "via": "project"
     },
     "user": {
+      "via": "projects",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "projects"
+      "model": "user"
     },
     "pro_ad": {
       "type": "string"

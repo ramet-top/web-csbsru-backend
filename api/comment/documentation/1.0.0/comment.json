@@ -681,6 +681,12 @@
                   "type": "string"
                 }
               },
+              "messages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -688,6 +694,12 @@
                 "type": "string"
               }
             }
+          },
+          "room": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
           }
         }
       },
@@ -700,6 +712,12 @@
             "type": "string"
           },
           "user": {
+            "type": "string"
+          },
+          "room": {
+            "type": "string"
+          },
+          "content": {
             "type": "string"
           },
           "created_by": {

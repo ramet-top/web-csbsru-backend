@@ -2,24 +2,32 @@
   "kind": "collectionType",
   "collectionName": "comments",
   "info": {
-    "name": "comment"
+    "name": "comment",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "detail": {
       "type": "string"
     },
     "project": {
-      "via": "comments",
-      "model": "project"
+      "model": "project",
+      "via": "comments"
     },
     "user": {
       "via": "comments",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "room": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
     }
   }
 }

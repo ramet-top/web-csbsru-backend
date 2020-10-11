@@ -6,7 +6,8 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -117,8 +118,8 @@
       "via": "user"
     },
     "projects": {
-      "via": "user",
-      "collection": "project"
+      "collection": "project",
+      "via": "user"
     },
     "comments": {
       "collection": "comment",
@@ -127,6 +128,10 @@
     "scores": {
       "collection": "score",
       "via": "user"
+    },
+    "messages": {
+      "via": "user",
+      "collection": "message"
     }
   }
 }
