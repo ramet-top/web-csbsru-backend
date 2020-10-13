@@ -25,6 +25,8 @@ module.exports = async () => {
     }
   })
 
+  io.set('origins', 'http://localhost:3001');
+
   //Verify token with strapi jwt service
   io.use(async (socket, next) => {
     if (socket.handshake.headers && socket.handshake.headers.authorization) {
@@ -66,7 +68,7 @@ module.exports = async () => {
       io.to(room).emit("message", message);
 
       // save message to database
-      strapi.services.message.create({
+      strapi.services.comment.create({
         user: socket.user.id,
         room: room,
         content: message.content
@@ -83,22 +85,7 @@ module.exports = async () => {
   strapi.io = io;
 
   // console.log("text connect server::", strapi.server);
-
-
-  // process.nextTick(() => {
-  //   var io = require('socket.io')(strapi.server);
-  //   io.on('connection', async function (socket) {
-  //
-  //     console.log(`a user connected`)
-  //     // send message on user connection
-  //     // socket.emit('hello', JSON.stringify({message: await strapi.services.profile.update({"posted_by"})}));
-  //
-  //
-  //     // listen for user disconnect
-  //     socket.on('disconnect', () => {
-  //       console.log('a user disconnected')
-  //     });
-  //   });
-  //   strapi.io = io; // register socket io inside strapi main object to use it globally anywhere
-  // })
+  
 };
+
+
