@@ -697,9 +697,6 @@
           },
           "room": {
             "type": "string"
-          },
-          "content": {
-            "type": "string"
           }
         }
       },
@@ -715,9 +712,6 @@
             "type": "string"
           },
           "room": {
-            "type": "string"
-          },
-          "content": {
             "type": "string"
           },
           "created_by": {

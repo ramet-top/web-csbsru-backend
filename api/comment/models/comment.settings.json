@@ -19,14 +19,11 @@
       "via": "comments"
     },
     "user": {
-      "via": "comments",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "comments"
     },
     "room": {
-      "type": "string"
-    },
-    "content": {
       "type": "string"
     }
   }

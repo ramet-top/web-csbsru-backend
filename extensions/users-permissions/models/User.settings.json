@@ -122,8 +122,8 @@
       "via": "user"
     },
     "comments": {
-      "collection": "comment",
-      "via": "user"
+      "via": "user",
+      "collection": "comment"
     },
     "scores": {
       "collection": "score",

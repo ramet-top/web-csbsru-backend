@@ -703,9 +703,6 @@
                 "room": {
                   "type": "string"
                 },
-                "content": {
-                  "type": "string"
-                },
                 "created_by": {
                   "type": "string"
                 },
