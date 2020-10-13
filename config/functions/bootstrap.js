@@ -25,7 +25,7 @@ module.exports = async () => {
       res.end();
     }
   })
-  
+
   // io.on("connection", () => {
   //   console.log("Connected!");
   // });
@@ -70,23 +70,36 @@ module.exports = async () => {
     // strapi.log.debug(`${socket.user.username} connected to a ${room}.`);
 
     //  listen foe user message
-    // socket.on("message", (message) => {
-    //   //send message to other user
-    //   io.to(room).emit("message", message);
-    //
-    //   // save message to database
-    //   strapi.services.comment.create({
-    //     user: socket.user.id,
-    //     room: room,
-    //     content: message.content
-    //   })
-    // });
+    socket.on("message", async (reqMessage) => {
+      //send message to other user
+
+      let result = JSON.stringify({
+        reqMessage: await strapi.services.comment.create({
+          user: socket.user.id,
+          room: room,
+          detail: reqMessage.detail
+        })
+      })
+
+      io.to(room).emit("message", result)
+
+      console.log('reqMessage::', reqMessage)
+      console.log('reqMessage 2::', JSON.stringify(reqMessage))
+
+      // save message to database
+      // strapi.services.comment.create({
+      //   user: socket.user.id,
+      //   room: room,
+      //   content: reqMessage.detail
+      // })
+    });
 
     //  listen for user disconnect
     socket.on("disconnect", () => {
       strapi.log.debug(`${socket.user.username} disconnect from a room ${room}.`)
     });
-  });
+  })
+  ;
 
   // register socket io inside strapi main object to user it globally anyWhere
   strapi.io = io;
