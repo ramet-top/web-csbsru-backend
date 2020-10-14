@@ -71,27 +71,20 @@ module.exports = async () => {
 
     //  listen foe user message
     socket.on("message", async (reqMessage) => {
-      //send message to other user
-
+      // console.log('reqMessage::', reqMessage)
       let result = JSON.stringify({
+        // save message to database
         reqMessage: await strapi.services.comment.create({
           user: socket.user.id,
+          project: reqMessage.project,
           room: room,
           detail: reqMessage.detail
         })
       })
+      // console.log('reqMessage 2::', JSON.stringify(reqMessage))
 
+      //send message to other user
       io.to(room).emit("message", result)
-
-      console.log('reqMessage::', reqMessage)
-      console.log('reqMessage 2::', JSON.stringify(reqMessage))
-
-      // save message to database
-      // strapi.services.comment.create({
-      //   user: socket.user.id,
-      //   room: room,
-      //   content: reqMessage.detail
-      // })
     });
 
     //  listen for user disconnect
