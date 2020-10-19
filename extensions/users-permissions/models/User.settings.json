@@ -128,10 +128,6 @@
     "scores": {
       "collection": "score",
       "via": "user"
-    },
-    "messages": {
-      "via": "user",
-      "collection": "message"
     }
   }
 }

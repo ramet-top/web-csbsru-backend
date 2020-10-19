@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/messages",
-      "handler": "message.find",
+      "path": "/professor-researches",
+      "handler": "professor-research.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/messages/count",
-      "handler": "message.count",
+      "path": "/professor-researches/count",
+      "handler": "professor-research.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/messages/:id",
-      "handler": "message.findOne",
+      "path": "/professor-researches/:id",
+      "handler": "professor-research.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/messages",
-      "handler": "message.create",
+      "path": "/professor-researches",
+      "handler": "professor-research.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/messages/:id",
-      "handler": "message.update",
+      "path": "/professor-researches/:id",
+      "handler": "professor-research.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/messages/:id",
-      "handler": "message.delete",
+      "path": "/professor-researches/:id",
+      "handler": "professor-research.delete",
       "config": {
         "policies": []
       }

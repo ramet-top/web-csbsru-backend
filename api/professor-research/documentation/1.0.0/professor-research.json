@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/messages": {
+    "/professor-researches": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,9 +10,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Message"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Message"
+          "Professor-research"
         ],
         "parameters": [
           {
@@ -201,72 +202,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Message"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Message"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewMessage"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/messages/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -306,12 +244,22 @@
         },
         "summary": "",
         "tags": [
-          "Message"
+          "Professor-research"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProfessor-research"
+              }
+            }
+          }
+        }
       }
     },
-    "/messages/{id}": {
+    "/professor-researches/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +269,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Message"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -359,7 +311,64 @@
         },
         "summary": "",
         "tags": [
-          "Message"
+          "Professor-research"
+        ],
+        "parameters": []
+      }
+    },
+    "/professor-researches/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Professor-research"
         ],
         "parameters": [
           {
@@ -383,7 +392,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Message"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -421,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Message"
+          "Professor-research"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewMessage"
+                "$ref": "#/components/schemas/NewProfessor-research"
               }
             }
           }
@@ -495,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Message"
+          "Professor-research"
         ],
         "parameters": [
           {
@@ -514,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Message": {
+      "Professor-research": {
         "required": [
           "id"
         ],
@@ -522,112 +535,70 @@
           "id": {
             "type": "string"
           },
-          "room": {
+          "title": {
             "type": "string"
           },
-          "user": {
+          "detail": {
+            "type": "string"
+          },
+          "file": {
             "required": [
               "id",
-              "username",
-              "email",
-              "yearIn"
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "username": {
+              "name": {
                 "type": "string"
               },
-              "email": {
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
                 "type": "string"
               },
               "provider": {
                 "type": "string"
               },
-              "password": {
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
                 "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "permissions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "prefix": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "yearIn": {
-                "type": "string"
-              },
-              "imageUrl": {
-                "type": "string"
-              },
-              "tel": {
-                "type": "string"
-              },
-              "lineId": {
-                "type": "string"
-              },
-              "faceBook": {
-                "type": "string"
-              },
-              "parents": {
-                "type": "string"
-              },
-              "addr": {
-                "type": "string"
-              },
-              "posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "scores": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "messages": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "created_by": {
                 "type": "string"
@@ -637,7 +608,7 @@
               }
             }
           },
-          "content": {
+          "name": {
             "type": "string"
           },
           "published_at": {
@@ -645,15 +616,15 @@
           }
         }
       },
-      "NewMessage": {
+      "NewProfessor-research": {
         "properties": {
-          "room": {
+          "title": {
             "type": "string"
           },
-          "user": {
+          "detail": {
             "type": "string"
           },
-          "content": {
+          "name": {
             "type": "string"
           },
           "published_at": {
@@ -669,9 +640,5 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Message"
-    }
-  ]
+  "tags": []
 }

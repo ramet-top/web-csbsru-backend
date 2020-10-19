@@ -1557,37 +1557,6 @@
                 }
               }
             }
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "room": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "datetime"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -1683,12 +1652,6 @@
             }
           },
           "scores": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "messages": {
             "type": "array",
             "items": {
               "type": "string"

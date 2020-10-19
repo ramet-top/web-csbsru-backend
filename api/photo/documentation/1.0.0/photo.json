@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/scores": {
+    "/photos": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Score"
+                    "$ref": "#/components/schemas/Photo"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Score"
+                  "$ref": "#/components/schemas/Photo"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewScore"
+                "$ref": "#/components/schemas/NewPhoto"
               }
             }
           }
         }
       }
     },
-    "/scores/count": {
+    "/photos/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "parameters": []
       }
     },
-    "/scores/{id}": {
+    "/photos/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Score"
+                  "$ref": "#/components/schemas/Photo"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Score"
+                  "$ref": "#/components/schemas/Photo"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewScore"
+                "$ref": "#/components/schemas/NewPhoto"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Score"
+          "Photo"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Score": {
+      "Photo": {
         "required": [
           "id"
         ],
@@ -522,164 +522,70 @@
           "id": {
             "type": "string"
           },
-          "status": {
-            "type": "boolean"
+          "title": {
+            "type": "string"
           },
-          "project": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "detail": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string"
-              },
-              "fileUrl": {
-                "type": "string"
-              },
-              "fileFull": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "finalDate": {
-                "type": "string"
-              },
-              "finalTime": {
-                "type": "string"
-              },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "scores": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "user": {
-                "type": "string"
-              },
-              "pro_ad": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "detail": {
+            "type": "string"
           },
-          "user": {
+          "imageUrl": {
             "required": [
               "id",
-              "username",
-              "email",
-              "yearIn"
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "username": {
+              "name": {
                 "type": "string"
               },
-              "email": {
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
                 "type": "string"
               },
               "provider": {
                 "type": "string"
               },
-              "password": {
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
                 "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "permissions": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "prefix": {
-                "type": "string"
-              },
-              "firstName": {
-                "type": "string"
-              },
-              "lastName": {
-                "type": "string"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "yearIn": {
-                "type": "string"
-              },
-              "imageUrl": {
-                "type": "string"
-              },
-              "tel": {
-                "type": "string"
-              },
-              "lineId": {
-                "type": "string"
-              },
-              "faceBook": {
-                "type": "string"
-              },
-              "parents": {
-                "type": "string"
-              },
-              "addr": {
-                "type": "string"
-              },
-              "posts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "projects": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "scores": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "created_by": {
                 "type": "string"
@@ -688,19 +594,22 @@
                 "type": "string"
               }
             }
+          },
+          "published_at": {
+            "type": "datetime"
           }
         }
       },
-      "NewScore": {
+      "NewPhoto": {
         "properties": {
-          "status": {
-            "type": "boolean"
-          },
-          "project": {
+          "title": {
             "type": "string"
           },
-          "user": {
+          "detail": {
             "type": "string"
+          },
+          "published_at": {
+            "type": "datetime"
           },
           "created_by": {
             "type": "string"
@@ -714,7 +623,7 @@
   },
   "tags": [
     {
-      "name": "Score"
+      "name": "Photo"
     }
   ]
 }

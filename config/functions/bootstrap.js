@@ -69,8 +69,8 @@ module.exports = async () => {
     //  debug log user connection
     // strapi.log.debug(`${socket.user.username} connected to a ${room}.`);
 
-    //  listen foe user message
-    socket.on("message", async (reqMessage) => {
+    //  listen for user message
+    socket.on(room, async (reqMessage) => {
       // console.log('reqMessage::', reqMessage)
       let result = JSON.stringify({
         // save message to database
@@ -84,7 +84,7 @@ module.exports = async () => {
       // console.log('reqMessage 2::', JSON.stringify(reqMessage))
 
       //send message to other user
-      io.to(room).emit("message", result)
+      io.to(room).emit(room, result)
     });
 
     //  listen for user disconnect
