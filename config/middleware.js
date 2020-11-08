@@ -8,7 +8,7 @@ module.exports = ({env}) => ({
     cache: {
       enabled: true,
       // models: ["posts"],
-      models: ["posts", "advisors", "comments", "scores", "downloads"],
+      models: ["posts", "advisors", "scores", "downloads"],
     },
   },
 });
